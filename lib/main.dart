@@ -1,22 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:registrar_page_turismapp/pages/registrar_page.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'pages/splash_page.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Registrar Page Turismapp',
+      title: 'Turismapp',
+      localizationsDelegates: const[
+        // GlobalMaterialLocalizations.delegate,
+        // GlobalWidgetsLocalizations.delegate,
+      ],
+
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        textTheme: GoogleFonts.workSansTextTheme() ,
       ),
-      home: const RegistrarPage(),
+      home: const SplashPage(),
     );
   }
 }
