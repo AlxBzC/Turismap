@@ -21,15 +21,22 @@ class _RegistrarPageState extends State<RegistrarPage> {
 
   Genero? _genero= Genero.Femenino;
 
+
+  String _data = "Información: ";
+
+  void _onRegisterButtonClicked(){
+    setState(() {
+      _data = "Nombre: ${nombres.text} \n Correo Electrónico: ${email.text}";
+
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
-        // decoration: const BoxDecoration(
-        //     image: DecorationImage(
-        //         image: AssetImage("assets/colombia_bandera.png"), fit: BoxFit.cover),
-        // ),
         child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50),
             child: SingleChildScrollView(
@@ -42,11 +49,23 @@ class _RegistrarPageState extends State<RegistrarPage> {
                               height: 80),
                           padding:
                           const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                          margin: const EdgeInsets.all(20),
+                          margin: const EdgeInsets.all(30),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(200),
                               border: Border.all(color: Colors.black54, width: 2),
-                              )),
+                              ),
+                      ),
+                      Text(
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                              fontSize: 40,
+                              fontWeight: FontWeight.bold),
+                          "Regístrate"),
+
+                      const SizedBox(
+                        height: 20,
+                      ),
+
                       TextFormField(
                         controller: nombres,
                         keyboardType: TextInputType.name,
@@ -111,9 +130,15 @@ class _RegistrarPageState extends State<RegistrarPage> {
                                   fontStyle: FontStyle.italic,
                                   fontSize: 20)),
                           onPressed:(){
+                            _onRegisterButtonClicked(),
 
                           },
-                          child: const Text("Registrarse"))
+                          child: const Text("Registrarse")),
+                      Text(
+                          _data,
+                      style: const TextStyle(
+                        fontSize: 12, fontStyle: FontStyle.italic
+                      ),)
                     ])))),
       ),
     );
