@@ -1,8 +1,4 @@
-
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:registrar_page_turismapp/pages/registrar_page.dart';
-
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -21,7 +17,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset("assets/colombia.png", height: 80, width:80 ,),
+                Image.asset("assets/colombia_bandera.png", height: 80, width:80 ,),
                 const Text("Bienvenido a ",
                   style: TextStyle(
                     fontSize: 25,),
@@ -82,10 +78,10 @@ class _LoginPageState extends State<LoginPage> {
 
                 // BOTON DE REGISTRARSE
                 TextButton(onPressed: ()  {
-                   Navigator.push(
-                   context,
-                   MaterialPageRoute(
-                     builder: (context) => RegistrarPage()));
+                  // Navigator.push(
+                  // context,
+                  // MaterialPageRoute(
+                  //     builder: (context) => RegisterPage()));
                 }, child: const Text("Registrarse",
                   style: TextStyle(
                     color: Colors.black,
