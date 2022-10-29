@@ -34,7 +34,6 @@ class _LoginPageState extends State<LoginPage> {
                 //ESPACIO PARA EL CORREO
                 Padding(padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 5),
                   child: TextFormField(
-                    textAlign: TextAlign.center,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(color: Colors.black54),
@@ -71,7 +70,12 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 20.0),
 
                 // BOTON DE INICIAR SESION
-                ElevatedButton(onPressed: () {} ,
+                ElevatedButton(onPressed: () {
+                  //Navigator.push(
+                     // context,
+                    //  MaterialPageRoute(
+                         // builder: (context) => const (aqui poner la pagina de miguel)));
+                } ,
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.indigo,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16),
                     ),
@@ -84,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                    Navigator.push(
                    context,
                    MaterialPageRoute(
-                    builder: (context) => RegistrarPage()));
+                    builder: (context) => const RegistrarPage()));
                 }, child: const Text("Registrarse",
                   style: TextStyle(
                     color: Colors.black,
