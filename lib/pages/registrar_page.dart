@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:registrar_page_turismapp/pages/home_page.dart';
+import 'package:registrar_page_turismapp/pages/navigationbar_page.dart';
+
 
 class RegistrarPage extends StatefulWidget {
   const RegistrarPage({Key? key}) : super(key: key);
@@ -130,7 +133,12 @@ class _RegistrarPageState extends State<RegistrarPage> {
                                   fontStyle: FontStyle.italic,
                                   fontSize: 20)),
                           onPressed:(){
-                            _onRegisterButtonClicked(),
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const navigationBar()));
+
+                            _onRegisterButtonClicked();
 
                           },
                           child: const Text("Registrarse")),
