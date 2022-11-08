@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:registrar_page_turismapp/pages/home_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:registrar_page_turismapp/pages/login_page.dart';
 import 'package:registrar_page_turismapp/pages/navigationbar_page.dart';
-
 
 class RegistrarPage extends StatefulWidget {
   const RegistrarPage({Key? key}) : super(key: key);
@@ -10,30 +11,38 @@ class RegistrarPage extends StatefulWidget {
   _RegistrarPageState createState() => _RegistrarPageState();
 }
 
-enum Genero {Femenino,Masculino}
-
 class _RegistrarPageState extends State<RegistrarPage> {
 
-  final nombres=TextEditingController();
-  final apellidos=TextEditingController();
-  final telefono=TextEditingController();
-  final direccion=TextEditingController();
-  final email=TextEditingController();
-  final password=TextEditingController();
-  final passwordConf=TextEditingController();
+  TextEditingController nombres = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController passwordConf = TextEditingController();
+  final firebase=FirebaseFirestore.instance;
 
-  Genero? _genero= Genero.Femenino;
+  registroUsuario() async {
+    try{
+      await firebase.collection('Usuarios').doc().set(
+        {
+          "Nombre":nombres.text,
+          "Correo":email.text,
+          "Contraseña":password.text,
+          "ConfirmarCon":passwordConf.text
+        }
+      );
 
+      }catch (e){
+      print('Error...'+e.toString());
+    }
+  }
 
-  String _data = "Información: ";
+ // String _data = "Información: ";
 
-  void _onRegisterButtonClicked(){
+ /* void _onRegisterButtonClicked(){
     setState(() {
       _data = "Nombre: ${nombres.text} \n Correo Electrónico: ${email.text}";
 
     });
-  }
-
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -123,30 +132,20 @@ class _RegistrarPageState extends State<RegistrarPage> {
                       const SizedBox(
                         height: 30,
                       ),
-                      ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              shadowColor: Colors.black54,
-                              fixedSize: const Size(200, 50),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(18)),
-                              textStyle: const TextStyle(
-                                  fontStyle: FontStyle.italic,
-                                  fontSize: 20)),
-                          onPressed:(){
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const navigationBar()));
 
-                            _onRegisterButtonClicked();
+     //////////////////////////  Boton Registrarse  //////////////////////////
+                      Padding(
+                        padding: EdgeInsets.all(20),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            print('Enviando...');
+                            registroUsuario();
+                            },
+                          child: Text('Registrarse'),
+                        ),
+                      )
+  //////////////////////////  Fin Boton  ////////////////////////////////
 
-                          },
-                          child: const Text("Registrarse")),
-                      Text(
-                          _data,
-                      style: const TextStyle(
-                        fontSize: 12, fontStyle: FontStyle.italic
-                      ),)
                     ])))),
       ),
     );

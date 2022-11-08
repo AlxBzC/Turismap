@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:registrar_page_turismapp/pages/home_page.dart';
@@ -5,17 +7,61 @@ import 'package:registrar_page_turismapp/pages/registrar_page.dart';
 
 
 class LoginPage extends StatefulWidget {
+  @override
   const LoginPage({Key? key}) : super(key: key);
 
-  @override
-  State<LoginPage> createState() => _LoginPageState();
+ State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController correo = TextEditingController();
+  TextEditingController pass = TextEditingController();
   @override
+  ////////////// Autenticación ///////////////
+  validarDatos() async{
+   try{
+      CollectionReference ref = FirebaseFirestore.instance.collection('Usuarios');
+      QuerySnapshot nusuario = await ref.get();
+
+      if(nusuario.docs.length != 0){
+        for(var cursor in nusuario.docs){
+          if(cursor.get('Correo') == correo.text && cursor.get('Contraseña') == pass.text){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                builder: (context) => const HomePage()));
+            }else{
+            print('error, ingrese datos correctamente');
+
+//////////////////  Alerta datos equivocados //////////////////////////////////
+
+          /*  showDialog(context: context, builder: (BuildContext context){
+              return AlertDialog(
+                title: Text('Error'),
+                content: SingleChildScrollView(
+                  child: ListBody(
+                    children: [
+                      Text('Ingrese los datos correctos')
+                    ],
+                  ),
+                ),
+              );
+            }
+            );*/
+//////////////////  Fin Alerta datos equivocados //////////////////////////////
+          }
+        }
+      }
+
+   }catch(e){
+     print('Error...'+e.toString());
+   }
+  }
+////////////////  Fin Autenticacion  /////////////////
+
   Widget build(BuildContext context){
     return Scaffold(
-      backgroundColor: Colors.purpleAccent[90],//para cambiar el color del fondo
+      backgroundColor: Colors.purpleAccent[90],
       body: Container(
           child: Center(
             child: Column(
@@ -35,6 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                 //ESPACIO PARA EL CORREO
                 Padding(padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 5),
                   child: TextFormField(
+                    controller: correo,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(color: Colors.black54),
@@ -53,6 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                 // ESPACIO PARA LA CONTRSEÑA
                 Padding(padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 5),
                   child: TextFormField(
+                    controller: pass,
                     obscureText: true,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
@@ -71,12 +119,11 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 20.0),
 
                 // BOTON DE INICIAR SESION
-                ElevatedButton(onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                         builder: (context) => const HomePage()));
-                } ,
+                ElevatedButton(
+                  onPressed: () {
+                    print('Ingresando...');
+                    validarDatos();
+                    } ,
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.indigo,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16),
                     ),
