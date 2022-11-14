@@ -29,7 +29,10 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  shared_preferences: 2.0.15
   flutter:
+    sdk: flutter
+  flutter_localizations:
     sdk: flutter
 
   # The following adds the Cupertino Icons font to your application.
@@ -40,6 +43,7 @@ dependencies:
   google_fonts: 3.0.1
   fluentui_icons: ^1.0.0
   gap: ^2.0.0
+  firebase_auth: ^4.1.2
 
 dev_dependencies:
   flutter_test:

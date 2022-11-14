@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'pages/splash_page.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -8,13 +9,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 void main() async {
 
   ////////////  Firebase //////////////////
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
-  WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp();
   runApp(const MyApp());
+  Firebase.initializeApp();
+
 }
 ////////////////////////////////////////////////
 
@@ -27,25 +28,18 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Turismapp',
       localizationsDelegates: const[
-        // GlobalMaterialLocalizations.delegate,
-        // GlobalWidgetsLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const[
+        Locale("en", "US"),
+        Locale("es", "CO"),
       ],
       theme: ThemeData(primarySwatch: Colors.blue, textTheme: GoogleFonts.workSansTextTheme(),
       ),
-      home: Screen(),
-      // home: const SplashPage(),
+      //home: Screen(),
+      home: const SplashPage(),
     );
-  }
-}
-
-class Screen extends StatefulWidget{
-  @override
-  _ScreenState createState() => _ScreenState();
-}
-
-class _ScreenState extends State<Screen> {
-  @override
-  Widget build(BuildContext context) {
-    return const SplashPage();
   }
 }
