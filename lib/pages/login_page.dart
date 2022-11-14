@@ -3,62 +3,68 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:registrar_page_turismapp/pages/home_page.dart';
-import 'package:registrar_page_turismapp/pages/registrar_page.dart';
+import 'package:registrar_page_turismapp/pages/register_page.dart';
+import 'package:registrar_page_turismapp/repository/firebase_api.dart';
+import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../models/user.dart';
 
 
 class LoginPage extends StatefulWidget {
   @override
   const LoginPage({Key? key}) : super(key: key);
 
+  @override
  State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController correo = TextEditingController();
-  TextEditingController pass = TextEditingController();
+  TextEditingController _email = TextEditingController();
+  TextEditingController _password = TextEditingController();
+
+  Users userLoad = Users.Empty();
+
+  final FirebaseApi _firebaseApi = FirebaseApi();
+
   @override
-  ////////////// Autenticación ///////////////
-  validarDatos() async{
-   try{
-      CollectionReference ref = FirebaseFirestore.instance.collection('Usuarios');
-      QuerySnapshot nusuario = await ref.get();
-
-      if(nusuario.docs.length != 0){
-        for(var cursor in nusuario.docs){
-          if(cursor.get('Correo') == correo.text && cursor.get('Contraseña') == pass.text){
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                builder: (context) => const HomePage()));
-            }else{
-            print('error, ingrese datos correctamente');
-
-//////////////////  Alerta datos equivocados //////////////////////////////////
-
-          /*  showDialog(context: context, builder: (BuildContext context){
-              return AlertDialog(
-                title: Text('Error'),
-                content: SingleChildScrollView(
-                  child: ListBody(
-                    children: [
-                      Text('Ingrese los datos correctos')
-                    ],
-                  ),
-                ),
-              );
-            }
-            );*/
-//////////////////  Fin Alerta datos equivocados //////////////////////////////
-          }
-        }
-      }
-
-   }catch(e){
-     print('Error...'+e.toString());
-   }
+  void initState(){
+    //_getUser();
+    super.initState();
   }
-////////////////  Fin Autenticacion  /////////////////
+  ////////////// Autenticación ///////////////
+  _getUser() async {
+   SharedPreferences prefs = await SharedPreferences.getInstance();
+   Map<String, dynamic> userMap = jsonDecode(prefs.getString("users")!);
+   userLoad = Users.fromJason(userMap);
+  }
 
+  void _showMsg(String mns){
+    final scaffold = ScaffoldMessenger.of(context);
+    scaffold.showSnackBar(
+        SnackBar(content: Text(mns),
+          action: SnackBarAction(
+              label: 'Aceptar', onPressed: scaffold.hideCurrentSnackBar),
+        ),
+    );
+  }
+  void _validateUser() async {
+    if (_email.text.isEmpty || _password.text.isEmpty) {
+      _showMsg("Debe digitar el correo y la contraseña");
+     } else {
+      var result = await _firebaseApi.logInUser(_email.text, _password.text);
+      String mns = "";
+      if (result == "invalid-email"){ mns = "Correo electronico mal escrito";} else
+      if (result == "wrong-password"){ mns = "Password incorrectos";} else
+      if (result == "network-request-failed"){ mns = "No tiene conexion a internet";} else
+      if (result == "user-not-found"){ mns = "Usuario no registrado";} else
+        mns = "Bienvenido";
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage()));
+        _showMsg("Correo o contraseña incorrecta");
+
+    }
+  }
+
+  @override
   Widget build(BuildContext context){
     return Scaffold(
       backgroundColor: Colors.purpleAccent[90],
@@ -81,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                 //ESPACIO PARA EL CORREO
                 Padding(padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 5),
                   child: TextFormField(
-                    controller: correo,
+                    controller: _email,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(color: Colors.black54),
@@ -100,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                 // ESPACIO PARA LA CONTRSEÑA
                 Padding(padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 5),
                   child: TextFormField(
-                    controller: pass,
+                    controller: _password,
                     obscureText: true,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
@@ -122,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                 ElevatedButton(
                   onPressed: () {
                     print('Ingresando...');
-                    validarDatos();
+                    _validateUser();
                     } ,
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.indigo,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16),
@@ -136,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                    Navigator.push(
                    context,
                    MaterialPageRoute(
-                    builder: (context) => const RegistrarPage()));
+                    builder: (context) => const RegisterPage()));
                 }, child: const Text("Registrarse",
                   style: TextStyle(
                     color: Colors.black,
