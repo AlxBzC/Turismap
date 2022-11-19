@@ -14,7 +14,7 @@ class SitiosPage extends StatefulWidget {
 
 class _SitiosPageState extends State<SitiosPage> {
 
-  List paseadores=[];
+  List sitios=[];
   List<dynamic> idDoc=[];
   final buscar=TextEditingController();
 
@@ -37,7 +37,7 @@ class _SitiosPageState extends State<SitiosPage> {
         for(var pas in paseador.docs){
           id=pas.id; //Trae el id
           idDoc.add(id);
-          paseadores.add(pas.data());
+          sitios.add(pas.data());
           print("------------------------>>>>>>>>>>>>>>>>>>><<< ID "+id);
           print("------------------------>>>>>>>>>>>>>>>>>>><<< "+pas.data().toString());
         }
@@ -48,7 +48,7 @@ class _SitiosPageState extends State<SitiosPage> {
   Future getCiudad() async{
 
     idDoc.clear();
-    paseadores.clear();
+    sitios.clear();
     String id="";
     QuerySnapshot paseoCiudad= await FirebaseFirestore.instance.collection("Paseadores").where("ciudad", isEqualTo: buscar.text).get();
     setState(() {
@@ -56,7 +56,7 @@ class _SitiosPageState extends State<SitiosPage> {
         for(var pas in paseoCiudad.docs){
           id=pas.id; //Trae el id
           idDoc.add(id);
-          paseadores.add(pas.data());
+          sitios.add(pas.data());
           print("------------------------>>>>>>>>>>>>>>>>>>><<< ID "+id);
           print("------------------------>>>>>>>>>>>>>>>>>>><<< "+pas.data().toString());
         }
@@ -108,14 +108,14 @@ class _SitiosPageState extends State<SitiosPage> {
             child: Container(
               child: ListView.builder(
                   padding: EdgeInsets.all(30),
-                  itemCount: paseadores.length,
+                  itemCount: sitios.length,
                   itemBuilder: (BuildContext context, i){
                     return Row(
                       children: [
                         Padding(
                             padding: EdgeInsets.all(10),
                             child: CircleAvatar(
-                              backgroundImage: NetworkImage(paseadores[i]['foto'], ),
+                              backgroundImage: NetworkImage(sitios[i]['foto'], ),
                               radius: 50,
                             )
                         ),
