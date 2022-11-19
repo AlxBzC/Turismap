@@ -1,7 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:registrar_page_turismapp/pages/home_page.dart';
 import 'package:registrar_page_turismapp/pages/register_page.dart';
 import 'package:registrar_page_turismapp/repository/firebase_api.dart';
@@ -59,8 +56,7 @@ class _LoginPageState extends State<LoginPage> {
       if (result == "user-not-found"){ mns = "Usuario no registrado";} else
         mns = "Bienvenido";
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage()));
-        _showMsg("Correo o contraseña incorrecta");
-
+        _showMsg("Inicio de sesión exitoso");
     }
   }
 
