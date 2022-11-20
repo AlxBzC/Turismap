@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:registrar_page_turismapp/pages/home_page.dart';
+import 'package:registrar_page_turismapp/pages/navigationbar_page.dart';
 import 'package:registrar_page_turismapp/pages/register_page.dart';
 import 'package:registrar_page_turismapp/repository/firebase_api.dart';
 import 'dart:convert';
@@ -55,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
       if (result == "network-request-failed"){ mns = "No tiene conexion a internet";} else
       if (result == "user-not-found"){ mns = "Usuario no registrado";} else
         mns = "Bienvenido";
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const navigationBar()));
         _showMsg("Inicio de sesión exitoso");
     }
   }
