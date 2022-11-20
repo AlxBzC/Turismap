@@ -29,12 +29,12 @@ class _sitePage4 extends State<sitePage4> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Turismo por",
+                          "Torre ",
                           style: Styles.headLineStyle6,
                         ),
                         const Gap(1),
                         Text(
-                          "Colombia",
+                          "Del Reloj",
                           style: Styles.headLineStyle,
                         ),
                       ],
@@ -126,7 +126,7 @@ class _sitePage4 extends State<sitePage4> {
                 )),
                 Container(
                     //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
+                    child: Column(
                   children: [
                     Center(
                       child: Text.rich(TextSpan(children: [
@@ -136,7 +136,7 @@ class _sitePage4 extends State<sitePage4> {
                               .copyWith(color: Styles.primaryColor),
                         ),
                         TextSpan(
-                          text: "Llamada ‘la nariz de",
+                          text: "Llamada ‘la nariz de Popayán’, la Torre del Reloj se levanta en la esquina suroccidental del Parque Caldas. Fue construida entre 1673 y 1682 y el reloj de un solo puntero fue donado por los sacerdotes de la ciudad en 1737. El terremoto de 1983 le causó daños, pero estos fueron reparados sin necesidad de mover uno solo de los 90.000 ladrillos que forman su estructura. ",
                           style: Styles.headLineStyle3
                               .copyWith(color: Styles.primaryColor),
                         )
@@ -144,137 +144,16 @@ class _sitePage4 extends State<sitePage4> {
                     )
                   ],
                 )),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
-                  children: [
-                    Center(
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "Popayán’, la Torre del Reloj",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        ),
-                        TextSpan(
-                          text: "se levanta",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        )
-                      ])),
-                    )
-                  ],
-                )),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
-                  children: [
-                    Center(
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "en la esquina suroccidental",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        ),
-                        TextSpan(
-                          text: "del Parque",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        )
-                      ])),
-                    )
-                  ],
-                )),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
-                  children: [
-                    Center(
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "Caldas. Fue construida ",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        ),
-                        TextSpan(
-                          text: "entre 1673 y ",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        )
-                      ])),
-                    )
-                  ],
-                )),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
-                  children: [
-                    Center(
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "1682 y el reloj de un solo",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        ),
-                        TextSpan(
-                          text: "puntero fue ",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        )
-                      ])),
-                    )
-                  ],
-                )),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
-                  children: [
-                    Center(
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "fue donado por los sacerdotes ",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        ),
-                        TextSpan(
-                          text: "de la",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        )
-                      ])),
-                    )
-                  ],
-                )),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
-                  children: [
-                    Center(
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "ciudad en 1737.",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        ),
-                      ])),
-                    )
-                  ],
-                )),
+
                 Gap(10),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
-                  children: [
-                    Center(
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "Otra informacion de interes... ",
-                          style: Styles.headLineStyle1
-                              .copyWith(color: Styles.primaryColor),
-                        ),
-                      ])),
-                    ),
-                  ],
-                )),
+                TextButton(
+                  child: const Text("Mas informacion..."),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => sitePage4()));
+                  },
+                ),
+
               ],
             ),
           ),

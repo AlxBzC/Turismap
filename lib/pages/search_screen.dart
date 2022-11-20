@@ -30,54 +30,6 @@ class _SearchScreenState extends State<SearchScreen> {
               style: Styles.headLineStyle1.copyWith(fontSize: 30),
             ),
             Gap(30),
-            //Buscador
-            Container(
-              padding: const EdgeInsets.all(3.5),
-              child: Row(
-                children: [
-                  Container(
-                    //width: size.width*.44,
-                    padding: EdgeInsets.symmetric(vertical: (7)),
-                    decoration: BoxDecoration(
-                        borderRadius:
-                            BorderRadius.horizontal(left: Radius.circular(50)),
-                        color: Colors.transparent),
-
-                    child: Center(
-                      child: Text("  Lugares turisticos   "),
-                    ),
-                  ),
-                  Container(
-                    //width: size.width*.44,
-                    padding: EdgeInsets.symmetric(vertical: (7)),
-                    decoration: BoxDecoration(
-                        borderRadius:
-                            BorderRadius.horizontal(right: Radius.circular(50)),
-                        color: Colors.white),
-
-                    child: Center(
-                      child: Text("  Hoteles  "),
-                    ),
-                  ),
-                  Container(
-                    //width: size.width*.44,
-                    padding: EdgeInsets.symmetric(vertical: (7)),
-                    decoration: BoxDecoration(
-                        borderRadius:
-                            BorderRadius.horizontal(left: Radius.circular(50)),
-                        color: Colors.grey.shade100),
-
-                    child: Center(
-                      child: Text("  Restaurantes  "),
-                    ),
-                  ),
-                ],
-              ),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: const Color(0xFFF4F6FD)),
-            ),
-            const Gap(25),
             Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),

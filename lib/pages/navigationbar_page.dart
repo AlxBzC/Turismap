@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:registrar_page_turismapp/pages/home_page.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
+import 'package:registrar_page_turismapp/pages/menu_page.dart';
 import 'package:registrar_page_turismapp/pages/search_screen.dart';
+import 'package:registrar_page_turismapp/pages/sitio_page.dart';
 
 
 class navigationBar extends StatefulWidget {
@@ -11,25 +13,24 @@ class navigationBar extends StatefulWidget {
  _navigationBarState createState() => _navigationBarState();
 }
 
+
 class _navigationBarState extends State<navigationBar> {
   int _selectedIndex=1;
   static final List <Widget>_widgetOptions = <Widget>[
     HomePage(),
     SearchScreen(),
-    const Text("Perfil"),
+    MenuPage(),
+
   ];
   void _onItemTapped(int index){
     setState(() {
       _selectedIndex=index;
     });
+
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Navigation Bar"),
-        centerTitle: true,
-      ),
       body: Center(
         child: _widgetOptions[_selectedIndex],
       ),

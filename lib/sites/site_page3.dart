@@ -29,12 +29,12 @@ class _sitePage3 extends State<sitePage3> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Turismo por",
-                          style: Styles.headLineStyle6,
+                          "Centro Historico ",
+                          style: Styles.headLineStyle,
                         ),
                         const Gap(1),
                         Text(
-                          "Colombia",
+                          "  de Popayan",
                           style: Styles.headLineStyle,
                         ),
                       ],
@@ -129,7 +129,7 @@ class _sitePage3 extends State<sitePage3> {
                 Gap(10),
                 Container(
                     //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
+                    child: Column(
                   children: [
                     Center(
                       child: Text.rich(TextSpan(children: [
@@ -139,7 +139,7 @@ class _sitePage3 extends State<sitePage3> {
                               .copyWith(color: Styles.primaryColor),
                         ),
                         TextSpan(
-                          text: "El centro histórico de",
+                          text: "El Centro Histórico de Popayán se encuentra en el centro-oriente de la Capital del Departamento del Cauca, Popayán, con una superficie aproximada de 236 manzanas, es uno de los centros históricos coloniales más grandes del país y América, lo que convierte a esta ciudad colombiana en una de las más antiguas y mejor conservadas del continente lo que se ve reflejado en su arquitectura y tradiciones religiosas, reconocida por su arquitectura colonial y el cuidado de las fachadas.",
                           style: Styles.headLineStyle3
                               .copyWith(color: Styles.primaryColor),
                         )
@@ -147,137 +147,16 @@ class _sitePage3 extends State<sitePage3> {
                     )
                   ],
                 )),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
-                  children: [
-                    Center(
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "Popayán, entre los ríos",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        ),
-                        TextSpan(
-                          text: "y Ejido y los ",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        )
-                      ])),
-                    )
-                  ],
-                )),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
-                  children: [
-                    Center(
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "cerros tutelares, es",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        ),
-                        TextSpan(
-                          text: "uno de los  mejor ",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        )
-                      ])),
-                    )
-                  ],
-                )),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
-                  children: [
-                    Center(
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "conservados de Colombia.",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        ),
-                        TextSpan(
-                          text: "Después del",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        )
-                      ])),
-                    )
-                  ],
-                )),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
-                  children: [
-                    Center(
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "terremoto de 1736 la ",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        ),
-                        TextSpan(
-                          text: "ciudad fue reco- ",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        )
-                      ])),
-                    )
-                  ],
-                )),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
-                  children: [
-                    Center(
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "nstruida y 20 años más ",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        ),
-                        TextSpan(
-                          text: "tarde se Arz-",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        )
-                      ])),
-                    )
-                  ],
-                )),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
-                  children: [
-                    Center(
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "obispal, la Torre del Reloj.",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        ),
-                      ])),
-                    )
-                  ],
-                )),
+
                 Gap(10),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
-                  children: [
-                    Center(
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "Otra informacion de interes del sitio... ",
-                          style: Styles.headLineStyle1
-                              .copyWith(color: Styles.primaryColor),
-                        ),
-                      ])),
-                    ),
-                  ],
-                )),
+                TextButton(
+                  child: const Text("Mas informacion..."),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => sitePage3()));
+                  },
+                ),
+
               ],
             ),
           ),

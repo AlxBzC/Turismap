@@ -16,15 +16,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Home Page"),
-        centerTitle: true,
-        leading: Icon(Icons.arrow_back),
-        actions: [
-          Icon(Icons.search),
-          Icon(Icons.more_vert),
-        ],
-      ),
       backgroundColor: Styles.bgColor,
       body: ListView(
         children: [
@@ -143,7 +134,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Container(
                     //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child:Row(
+                    child:Column(
                       children: [
                         Center(
                           child: Text.rich(
@@ -153,136 +144,8 @@ class _HomePageState extends State<HomePage> {
                                       text:"Descripcion: ",style:Styles.headLineStyle1.copyWith(color: Styles.primaryColor),
                                     ),
                                     TextSpan(
-                                      text: "Popayán es una de las",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
+                                      text: "Popayán, oficialmente Asunción de Popayán, es un municipio colombiano capital del departamento del Cauca. Se encuentra localizado en el Valle de Pubenza, entre la Cordillera Occidental y Central al suroccidente del país.",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
                                     )
-                                  ]
-                              )),
-                        )
-
-                      ],
-                    )
-                ),
-                Container(
-                  //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child:Row(
-                      children: [
-                        Center(
-                          child: Text.rich(
-                              TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text:"Ciudades coloniales más ",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    ),
-                                    TextSpan(
-                                      text: "hermosas de",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    )
-
-                                  ]
-                              )),
-                        )
-
-                      ],
-                    )
-                ),
-                Container(
-                  //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child:Row(
-                      children: [
-                        Center(
-                          child: Text.rich(
-                              TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text:"Colombia. Ubicada cerca",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    ),
-                                    TextSpan(
-                                      text: "del Volcán de",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    )
-
-                                  ]
-                              )),
-                        )
-
-                      ],
-                    )
-                ),
-                Container(
-                  //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child:Row(
-                      children: [
-                        Center(
-                          child: Text.rich(
-                              TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text:"Puracé, cuya cima",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    ),
-                                    TextSpan(
-                                      text: "nevada se pude",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    )
-
-                                  ]
-                              )),
-                        )
-
-                      ],
-                    )
-                ),
-                Container(
-                  //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child:Row(
-                      children: [
-                        Center(
-                          child: Text.rich(
-                              TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text:"apreciar desde la",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    ),
-                                    TextSpan(
-                                      text: "la ciudad, fue fundada",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    )
-
-                                  ]
-                              )),
-                        )
-
-                      ],
-                    )
-                ),
-                Container(
-                  //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child:Row(
-                      children: [
-                        Center(
-                          child: Text.rich(
-                              TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text:"y se encuentra ubicada",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    ),
-                                    TextSpan(
-                                      text: "sobre una de las",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    )
-
-                                  ]
-                              )),
-                        )
-
-                      ],
-                    )
-                ),
-                Container(
-                  //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child:Row(
-                      children: [
-                        Center(
-                          child: Text.rich(
-                              TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text:"del El Dorado.",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    ),
                                   ]
                               )),
                         )
@@ -292,24 +155,14 @@ class _HomePageState extends State<HomePage> {
                 ),
 
                 Gap(10),
-                Container(
-                  //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child:Row(
-                      children: [
-                        Center(
-                          child: Text.rich(
-                              TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text:"Otra informacion de interes... ",style:Styles.headLineStyle1.copyWith(color: Styles.primaryColor),
-                                    ),
-                                  ]
-                              )),
-                        )
-
-                      ],
-                    )
+                TextButton(
+                  child: const Text("Mas informacion..."),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  },
                 ),
+
               ],
             ),
           ),

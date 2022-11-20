@@ -29,12 +29,12 @@ class _sitePage2 extends State<sitePage2> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Turismo por",
-                          style: Styles.headLineStyle6,
+                          "Parque ",
+                          style: Styles.headLineStyle,
                         ),
                         const Gap(1),
                         Text(
-                          "Colombia",
+                          "Caldas",
                           style: Styles.headLineStyle,
                         ),
                       ],
@@ -60,7 +60,7 @@ class _sitePage2 extends State<sitePage2> {
                       borderRadius: BorderRadius.circular(25),
                       image: DecorationImage(
                         fit: BoxFit.fitHeight,
-                        image: AssetImage("assets/111.png"),
+                        image: AssetImage("assets/ParqueCaldasPopayan.jpg"),
                       )),
                 ),
                 Gap(20),
@@ -126,7 +126,7 @@ class _sitePage2 extends State<sitePage2> {
                 )),
                 Container(
                     //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
+                    child: Column(
                   children: [
                     Center(
                       child: Text.rich(TextSpan(children: [
@@ -136,87 +136,7 @@ class _sitePage2 extends State<sitePage2> {
                               .copyWith(color: Styles.primaryColor),
                         ),
                         TextSpan(
-                          text: "Es uno de los sitios",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        )
-                      ])),
-                    )
-                  ],
-                )),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
-                  children: [
-                    Center(
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "más antiguos de la ciudad,",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        ),
-                        TextSpan(
-                          text: "construido",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        )
-                      ])),
-                    )
-                  ],
-                )),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
-                  children: [
-                    Center(
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "aproximadamente en el año",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        ),
-                        TextSpan(
-                          text: "1537 como",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        )
-                      ])),
-                    )
-                  ],
-                )),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
-                  children: [
-                    Center(
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "plaza de mercado el cual",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        ),
-                        TextSpan(
-                          text: "se ha, trasfor-",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        )
-                      ])),
-                    )
-                  ],
-                )),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
-                  children: [
-                    Center(
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "mado a través de los ",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        ),
-                        TextSpan(
-                          text: "años. En 1910 se",
+                          text: "El Parque Caldas es la plaza principal de la ciudad de Popayán, Colombia. Se encuentra ubicado en el centro de la Ciudad, lugar donde convergen todos los edificios principales y representativos de la ciudad. Desde el año 2010 Con una inversión de más de 2.300 millones de pesos financiados por FONADE y con el aporte de 550 millones de la Alcaldía de Popayán, se entregaron las obras de ampliación, ornato y embellecimiento del área peatonal del parque.",
                           style: Styles.headLineStyle3
                               .copyWith(color: Styles.primaryColor),
                         )
@@ -225,57 +145,15 @@ class _sitePage2 extends State<sitePage2> {
                   ],
                 )),
 
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
-                  children: [
-                    Center(
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "instaló el monumento",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        ),
-                        TextSpan(
-                          text: "que rinde ",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        )
-                      ])),
-                    )
-                  ],
-                )),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
-                  children: [
-                    Center(
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "homenaje al prócer de la indepen...",
-                          style: Styles.headLineStyle3
-                              .copyWith(color: Styles.primaryColor),
-                        ),
-                      ])),
-                    )
-                  ],
-                )),
                 Gap(10),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child: Row(
-                  children: [
-                    Center(
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "Otra informacion de interes... ",
-                          style: Styles.headLineStyle1
-                              .copyWith(color: Styles.primaryColor),
-                        ),
-                      ])),
-                    ),
-                  ],
-                )),
+                TextButton(
+                  child: const Text("Mas informacion..."),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => sitePage2()));
+                  },
+                ),
+
               ],
             ),
           ),

@@ -29,11 +29,11 @@ class _sitePage1 extends State<sitePage1> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Turismo por", style: Styles.headLineStyle6,
+                          "El puente", style: Styles.headLineStyle,
                         ),
                         const Gap(1),
                         Text(
-                          "Colombia", style: Styles.headLineStyle,
+                          "Del Humilladero", style: Styles.headLineStyle,
                         ),
                       ],
 
@@ -135,7 +135,7 @@ class _sitePage1 extends State<sitePage1> {
                 Gap(10),
                 Container(
                   //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child:Row(
+                    child:Column(
                       children: [
                         Center(
                           child: Text.rich(
@@ -146,136 +146,8 @@ class _sitePage1 extends State<sitePage1> {
                                     ),
 
                                     TextSpan(
-                                      text: "El puente del humilladero ",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
+                                      text: "Popayán,2​ oficialmente Asunción de Popayán, es un municipio colombiano, capital del departamento del Cauca. Se encuentra localizado en el Valle de Pubenza, entre la Cordillera Occidental y Central al suroccidente del país. Su extensión territorial es de 512 km², su altitud media es de 1760 m sobre el nivel del mar, su precipitación media anual de 1941 mm, su temperatura promedio de 14/19 °C y distancia aproximada de 600 km a Bogotá, capital de Colombia.",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
                                     )
-                                  ]
-                              )),
-                        )
-
-                      ],
-                    )
-                ),
-                Container(
-                  //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child:Row(
-                      children: [
-                        Center(
-                          child: Text.rich(
-                              TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text:"lo denominan así, según  ",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    ),
-                                    TextSpan(
-                                      text: "nos contaron",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    )
-
-                                  ]
-                              )),
-                        )
-
-                      ],
-                    )
-                ),
-                Container(
-                  //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child:Row(
-                      children: [
-                        Center(
-                          child: Text.rich(
-                              TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text:"personas de Popayan,",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    ),
-                                    TextSpan(
-                                      text: "era por que antes",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    )
-
-                                  ]
-                              )),
-                        )
-
-                      ],
-                    )
-                ),
-                Container(
-                  //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child:Row(
-                      children: [
-                        Center(
-                          child: Text.rich(
-                              TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text:"el puente a las personas",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    ),
-                                    TextSpan(
-                                      text: "les tocaba",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    )
-
-                                  ]
-                              )),
-                        )
-
-                      ],
-                    )
-                ),
-                Container(
-                  //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child:Row(
-                      children: [
-                        Center(
-                          child: Text.rich(
-                              TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text:"inclinarse para subir la",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    ),
-                                    TextSpan(
-                                      text: " empinada ",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    )
-
-                                  ]
-                              )),
-                        )
-
-                      ],
-                    )
-                ),
-                Container(
-                  //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child:Row(
-                      children: [
-                        Center(
-                          child: Text.rich(
-                              TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text:"cuesta, por esta",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    ),
-                                    TextSpan(
-                                      text: "razón se denomina así.",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    )
-
-                                  ]
-                              )),
-                        )
-
-                      ],
-                    )
-                ),
-                Container(
-                  //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child:Row(
-                      children: [
-                        Center(
-                          child: Text.rich(
-                              TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text:"Los visitamos en la tarde y no tuvi...",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    ),
                                   ]
                               )),
                         )
@@ -285,23 +157,14 @@ class _sitePage1 extends State<sitePage1> {
                 ),
 
                 Gap(10),
-                Container(
-                  //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child:Row(
-                      children: [
-                        Center(
-                          child: Text.rich(
-                              TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text:"Otra informacion de interes del sitio... ",style:Styles.headLineStyle1.copyWith(color: Styles.primaryColor),
-                                    ),
-                                  ]
-                              )),
-                        ),
-                      ],
-                    )
+                TextButton(
+                  child: const Text("Mas informacion..."),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => sitePage1()));
+                  },
                 ),
+
               ],
             ),
           ),
