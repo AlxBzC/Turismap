@@ -1,12 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:registrar_page_turismapp/pages/login_page.dart';
 import 'package:registrar_page_turismapp/models/user.dart';
 import '../repository/firebase_api.dart';
-import 'dart:convert';
-import 'package:shared_preferences/shared_preferences.dart';
 
 
 class RegisterPage extends StatefulWidget {
@@ -19,11 +15,11 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
 
   final FirebaseApi _firebaseApi = FirebaseApi();
-  TextEditingController _name = TextEditingController();
-  TextEditingController _email = TextEditingController();
-  TextEditingController _password = TextEditingController();
-  TextEditingController _passwordConf = TextEditingController();
-  final firebase=FirebaseFirestore.instance;
+  final TextEditingController _name = TextEditingController();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
+  final TextEditingController _passwordConf = TextEditingController();
+  final firebase = FirebaseFirestore.instance;
 
   void _showMsg(String msg){
     final scaffold = ScaffoldMessenger.of(context);
@@ -35,17 +31,18 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  void _saveUser(Users users) async {
+  void _saveUser(Users users) async{
     var result = await _firebaseApi.createUser(users);
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
+    Navigator.pushReplacement(context,
+        MaterialPageRoute(builder: (context) => const LoginPage()));
+
   }
 
-  void registerUser(Users users) async {
-    //SharedPreferences prefs = await SharedPreferences.getInstance();
-    //prefs.setString("user", jsonEncode(user));
+  void _registerUser(Users users) async {
     var result = await _firebaseApi.registerUser(users.email, users.password);
     String msg = "";
     if (result == "invalid-email"){msg = "Ingrese un correo valido";} else
+    if (result == "internal-error"){msg = "Ingrese todos los datos";} else
     if (result == "weak-password"){msg = "El password debe contener minimo 6 digitos";} else
     if (result == "email-already-in-use"){msg = "El correo ya existe";} else
     if (result == "network-request-failed"){msg = "No tiene conexion a internet";} else {
@@ -54,17 +51,18 @@ class _RegisterPageState extends State<RegisterPage> {
       _saveUser(users);
     }
     _showMsg(msg);
-
   }
 
     void _onRegisterButtonClicked(){
     setState(() {
-      if(_password.text == _passwordConf.text) {
+      if (_email.text.isEmpty || _password.text.isEmpty || _name.text.isEmpty) {
+      _showMsg("Debe ingresar sus datos");}else
+      if(_password.text == _passwordConf.text){
         var user = Users("",
             _name.text, _email.text, _password.text);
-        registerUser(user);
+        _registerUser(user);
       } else {
-        _showMsg("Las contraseñas deben ser iguales");
+        _showMsg("Contraseña debe coincidir");
       }
     });
 
@@ -113,8 +111,8 @@ class _RegisterPageState extends State<RegisterPage> {
                         keyboardType: TextInputType.name,
                         decoration: const InputDecoration(
                             labelText: "Nombre completo",
+                            suffixIcon: Icon(Icons.account_circle),
                             border: OutlineInputBorder(),
-                            suffixIcon: Icon(Icons.person, color: Colors.white,)
                         ),
                       ),
                       const SizedBox(
@@ -128,8 +126,8 @@ class _RegisterPageState extends State<RegisterPage> {
                         keyboardType: TextInputType.emailAddress,
                         decoration: const InputDecoration(
                             labelText: "Correo Electrónico",
+                            suffixIcon: Icon(Icons.email),
                             border: OutlineInputBorder(),
-                            suffixIcon: Icon(Icons.email_outlined, color: Colors.white,)
                         ),
                       ),
                       const SizedBox(
@@ -141,12 +139,12 @@ class _RegisterPageState extends State<RegisterPage> {
                       TextFormField(
                         obscureText: true,
                         controller: _password,
-                        //keyboardType: TextInputType.emailAddress,
-                        //maxLength: 8,
+                        keyboardType: TextInputType.emailAddress,
+
                         decoration: const InputDecoration(
                             labelText: "Contraseña",
+                            suffixIcon: Icon(Icons.vpn_key_sharp),
                             border: OutlineInputBorder(),
-                            suffixIcon: Icon(Icons.vpn_key_sharp, color: Colors.white,)
                         ),
                       ),
                       const SizedBox(
@@ -157,14 +155,14 @@ class _RegisterPageState extends State<RegisterPage> {
                       TextFormField(
                         obscureText: true,
                         controller: _passwordConf,
-                        //keyboardType: TextInputType.emailAddress,
-                        //maxLength: 8,
+                        keyboardType: TextInputType.emailAddress,
+
                         decoration: const InputDecoration(
                             labelText: "Confirmar Contraseña",
+                            suffixIcon: Icon(Icons.password),
                             fillColor: Colors.white,
                             filled: true,
                             border: OutlineInputBorder(),
-                            suffixIcon: Icon(Icons.vpn_key_sharp, color: Colors.white,)
                         ),
                       ),
                       const SizedBox(
@@ -172,17 +170,16 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
 
                       //////////////////////////  Boton Registrarse  //////////////////////////
-                      Padding(
-                        padding: EdgeInsets.all(20),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            _onRegisterButtonClicked();
-                            print('Enviando...');
-                            // registroUsuario();
-                          },
-                          child: const Text('Registrarse'),
-                        ),
-                      )
+                     ElevatedButton(
+                         style: TextButton.styleFrom(
+                           textStyle: const TextStyle(fontSize: 16),
+                         ),
+                         onPressed:() {
+                           _onRegisterButtonClicked();
+                           },
+                         child: const Text("Registrar"),
+                     )
+
                       //////////////////////////  Fin Boton  ////////////////////////////////
 
                     ])))),

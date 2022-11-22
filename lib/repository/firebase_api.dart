@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:registrar_page_turismapp/models/user.dart';
+import 'package:registrar_page_turismapp/models/user.dart' as UsersApp;
 
 class FirebaseApi{
 
@@ -20,7 +20,8 @@ class FirebaseApi{
 
   Future<String?> logInUser(String email, String password) async {
     try{
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+      final credential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
       return credential.user?.uid;
     }   on FirebaseAuthException catch (e) {
       print("FirebaseAuthException ${e.code}");
@@ -31,9 +32,10 @@ class FirebaseApi{
     }
   }
 
-  Future<String> createUser(Users users) async {
+  Future<String> createUser(UsersApp.Users users) async {
     try {
-        final document = await FirebaseFirestore.instance.collection("users").doc(users.uid).set(users.toJson());
+        final document = await FirebaseFirestore.instance
+            .collection("users").doc(users.uid).set(users.toJson());
         return users.uid;
       } on FirebaseException catch (e) {
         print("FirebaseException ${e.code}");

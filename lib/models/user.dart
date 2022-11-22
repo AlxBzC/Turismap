@@ -8,18 +8,19 @@ class Users {
 
   Users.Empty();
 
-  Users.fromJason(Map<String,dynamic> json)
-    :   _uid = json['uid'],
+  Users.fromJason(Map<String, dynamic> json)
+      : _uid = json['uid'],
         _name = json['name'],
         _email = json['email'],
         _password = json['password'];
 
-  Map<String, dynamic> toJson() => {
-    'uid' : _uid,
-    'name' : _name,
-    'email' : _email,
-    'password' : _password
-  };
+  Map<String, dynamic> toJson() =>
+      {
+        'uid': _uid,
+        'name': _name,
+        'email': _email,
+        'password': _password
+      };
 
   get uid => _uid;
 
@@ -35,13 +36,13 @@ class Users {
 
   get email => _email;
 
+  set email(value) {
+    _email = value;
+  }
+
   get password => _password;
 
   set password(value) {
     _password = value;
-  }
-
-  set email(value) {
-    _email = value;
   }
 }
