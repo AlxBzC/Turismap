@@ -16,6 +16,15 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+  
+ /* void FavoritosLista(){
+    var SitiosLocal = SitiosLocal();
+    id??
+      
+    final box = Boxes.boxFavoritos();
+    box.add(SitiosLocal);
+  } */
+  
   @override
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(BuildContext);
@@ -90,6 +99,13 @@ class _SearchScreenState extends State<SearchScreen> {
             "Puente del Humilladero",
             style: Styles.headLineStyle1,
           ),
+          /* IconButton(
+             alignment: Alignment.topRight,
+             color: Colors.red
+              onPressed: (){
+                FavoritosLista();
+              }, icon: Icon(FluentSystemIcons.(porelegir))
+             ), */
           SizedBox(
             height: 1,
           ),
@@ -124,6 +140,13 @@ class _SearchScreenState extends State<SearchScreen> {
             "Parque Caldas",
             style: Styles.headLineStyle1,
           ),
+       /* IconButton(
+             alignment: Alignment.topRight,
+             color: Colors.red
+              onPressed: (){
+                FavoritosLista();
+              }, icon: Icon(FluentSystemIcons.(porelegir))
+             ), */
           SizedBox(
             height: 1,
           ),

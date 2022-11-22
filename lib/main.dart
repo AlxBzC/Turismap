@@ -12,6 +12,9 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+ // await Hive.initFlutter();
+  // Hive.registerAdapter(SitiosLocalAdapter());
+  //await Hive.openBox<SitiosLocal>('favoritos');
   runApp(const MyApp());
   Firebase.initializeApp();
 
