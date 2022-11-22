@@ -31,14 +31,14 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
         backgroundColor: Styles.bgColor,
         body: ListView(
-          padding: EdgeInsets.symmetric(horizontal: (25), vertical: (0)),
+          padding: const EdgeInsets.symmetric(horizontal: (25), vertical: (10)),
           children: [
             Gap((40)),
             Text(
-              "¿Que es\n lo que buscas?",
+              "Descubre Popayán",
               style: Styles.headLineStyle1.copyWith(fontSize: 30),
             ),
-            Gap(30),
+            Gap(20),
             Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -49,7 +49,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   const Icon(FluentSystemIcons.ic_fluent_search_regular,
                       color: Color(0xFFBFC205)),
                   Text(
-                    "  Bucar",
+                    "Bucar",
                     style: Styles.headLineStyle4,
                   )
                 ],
@@ -86,7 +86,7 @@ class _SearchScreenState extends State<SearchScreen> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
         child: Column(children: <Widget>[
-          ClipRRect(
+          const ClipRRect(
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(20), topLeft: Radius.circular(20)),
             child: FadeInImage(
@@ -202,7 +202,7 @@ class _SearchScreenState extends State<SearchScreen> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
         child: Column(children: <Widget>[
-          ClipRRect(
+          const ClipRRect(
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(20), topLeft: Radius.circular(20)),
             child: FadeInImage(
@@ -215,7 +215,7 @@ class _SearchScreenState extends State<SearchScreen> {
             "Torre del Reloj",
             style: Styles.headLineStyle1,
           ),
-          SizedBox(
+          const SizedBox(
             height: 1,
     ),
             TextButton(
