@@ -3,7 +3,6 @@ import 'package:registrar_page_turismapp/pages/home_page.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:registrar_page_turismapp/pages/menu_page.dart';
 import 'package:registrar_page_turismapp/pages/search_screen.dart';
-import 'package:registrar_page_turismapp/pages/sitio_page.dart';
 
 
 class navigationBar extends StatefulWidget {

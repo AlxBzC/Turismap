@@ -1,5 +1,4 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:registrar_page_turismapp/utils/app_styles.dart';
@@ -13,6 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
                           width: 50,
                           decoration: BoxDecoration(
                             borderRadius:BorderRadius.circular(10),
-                            image: DecorationImage(
+                            image: const DecorationImage(
                             fit: BoxFit.fitHeight,
                             image: AssetImage(
                               "assets/1.png"
@@ -53,116 +53,102 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                     ),
-
                   ],
                 ),
-                Gap(20),
+                const Gap(20),
                 Container(
                   height: 250.0,
                   width: 350.0,
                   decoration: BoxDecoration(
                     borderRadius:BorderRadius.circular(25),
-                    image: DecorationImage(
+                    image: const DecorationImage(
                         fit: BoxFit.fitHeight,
                         image: AssetImage("assets/popayan.jpg"),
                     )
                     ),
                   ),
-                Gap(20),
+                const Gap(20),
 
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                  child:Row(
-                    children: [
-                      Center(
-                        child: Text.rich(
+                Row(
+                  children: [
+                    Center(
+                      child: Text.rich(
+                          TextSpan(
+                          children: [
                             TextSpan(
-                            children: [
-                              TextSpan(
-                                text:"Ciudad: ",style:Styles.headLineStyle1.copyWith(color: Styles.primaryColor),
-                              ),
-                              TextSpan(
-                                text: "Popayan",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                              )
-                            ]
-                        )),
-                      )
-                    ],
-                  )
-                ),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child:Row(
-                      children: [
-                        Center(
-                          child: Text.rich(
-                              TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text:"Departamento: ",style:Styles.headLineStyle1.copyWith(color: Styles.primaryColor),
-                                    ),
-                                    TextSpan(
-                                      text: "Cauca",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    )
-                                  ]
-                              )),
-                        )
-
-                      ],
+                              text:"Ciudad: ",style:Styles.headLineStyle1.copyWith(color: Styles.primaryColor),
+                            ),
+                            TextSpan(
+                              text: "Popayán",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
+                            )
+                          ]
+                      )),
                     )
+                  ],
                 ),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child:Row(
-                      children: [
-                        Center(
-                          child: Text.rich(
-                              TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text:"Temperatura: ",style:Styles.headLineStyle1.copyWith(color: Styles.primaryColor),
-                                    ),
-                                    TextSpan(
-                                      text: "24 °C",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    )
-                                  ]
-                              )),
-                        )
-
-                      ],
+                Row(
+                  children: [
+                    Center(
+                      child: Text.rich(
+                          TextSpan(
+                              children: [
+                                TextSpan(
+                                  text:"Departamento: ",style:Styles.headLineStyle1.copyWith(color: Styles.primaryColor),
+                                ),
+                                TextSpan(
+                                  text: "Cauca",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
+                                )
+                              ]
+                          )),
                     )
+
+                  ],
                 ),
-                Container(
-                    //padding:  EdgeInsets.fromLTRB(30, 35, 30, 15),
-                    child:Column(
-                      children: [
-                        Center(
-                          child: Text.rich(
-                              TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text:"Descripcion: ",style:Styles.headLineStyle1.copyWith(color: Styles.primaryColor),
-                                    ),
-                                    TextSpan(
-                                      text: "Popayán, oficialmente Asunción de Popayán, es un municipio colombiano capital del departamento del Cauca. Se encuentra localizado en el Valle de Pubenza, entre la Cordillera Occidental y Central al suroccidente del país.",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
-                                    )
-                                  ]
-                              )),
-                        )
-
-                      ],
+                Row(
+                  children: [
+                    Center(
+                      child: Text.rich(
+                          TextSpan(
+                              children: [
+                                TextSpan(
+                                  text:"Temperatura: ",style:Styles.headLineStyle1.copyWith(color: Styles.primaryColor),
+                                ),
+                                TextSpan(
+                                  text: "24 °C",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
+                                )
+                              ]
+                          )),
                     )
+
+                  ],
+                ),
+                Column(
+                  children: [
+                    Center(
+                      child: Text.rich(
+                          TextSpan(
+                              children: [
+                                TextSpan(
+                                  text:"Descripcion: ",style:Styles.headLineStyle1.copyWith(color: Styles.primaryColor),
+                                ),
+                                TextSpan(
+                                  text: "Popayán, oficialmente Asunción de Popayán, es un municipio colombiano capital del departamento del Cauca. Se encuentra localizado en el Valle de Pubenza, entre la Cordillera Occidental y Central al suroccidente del país.",style:Styles.headLineStyle3.copyWith(color: Styles.primaryColor),
+                                )
+                              ]
+                          )),
+                    )
+
+                  ],
                 ),
 
                 Gap(10),
-                TextButton(
-                  child: const Text("Mas informacion..."),
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomePage()));
-                  },
-                ),
-
+                // TextButton(
+                //   child: const Text("Mas informacion..."),
+                //   onPressed: () {
+                //     Navigator.push(context,
+                //         MaterialPageRoute(builder: (context) => HomePage()));
+                //   },
+                // ),
               ],
             ),
           ),

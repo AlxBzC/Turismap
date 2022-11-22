@@ -168,7 +168,7 @@ class _SearchScreenState extends State<SearchScreen> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
         child: Column(children: <Widget>[
-          ClipRRect(
+          const ClipRRect(
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(20), topLeft: Radius.circular(20)),
             child: FadeInImage(
@@ -181,7 +181,7 @@ class _SearchScreenState extends State<SearchScreen> {
             "Histórico de Popayán",
             style: Styles.headLineStyle1,
           ),
-          SizedBox(
+          const SizedBox(
             height: 1,
           ),
           TextButton(
@@ -236,7 +236,7 @@ class _SearchScreenState extends State<SearchScreen> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
         child: Column(children: <Widget>[
-          ClipRRect(
+          const ClipRRect(
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(20), topLeft: Radius.circular(20)),
             child: FadeInImage(
@@ -249,7 +249,7 @@ class _SearchScreenState extends State<SearchScreen> {
             "Iglesia de San Francisco",
             style: Styles.headLineStyle1,
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
         ]),
