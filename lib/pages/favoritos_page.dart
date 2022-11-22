@@ -14,5 +14,15 @@ class _FavoritosPageState extends State<FavoritosPage> {
   Widget build(BuildContext context) {
     return Container();
   }
+  
+  
+  /*Widget Favoritos(){
+
+    return ValueListenableBuilder<Box<SitiosLocal>>(
+        valueListenable: Boxes.boxFavoritos().listenable(),
+        builder: (context, box, _)
+	{final lista = box.values.toList().cast<SitiosLocal>();
+          return ListView.builder()}
+	)*/
 }
 
