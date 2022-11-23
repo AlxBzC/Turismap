@@ -7,6 +7,8 @@
         android:label="registrar_page_turismapp"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+       <meta-data android:name="com.google.android.geo.API_KEY"
+           android:value="AIzaSyCwwEMjmS75WiAhlu07t5anG-vHi5lXpoI"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

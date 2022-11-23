@@ -1,5 +1,7 @@
+import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:registrar_page_turismapp/maps/maps_site3.dart';
 import 'package:registrar_page_turismapp/utils/app_styles.dart';
 import 'package:gap/gap.dart';
 
@@ -149,6 +151,18 @@ class _sitePage3 extends State<sitePage3> {
                 )),
 
                 Gap(10),
+
+                FloatingActionButton(
+                  child: (
+                      Icon(FluentSystemIcons.ic_fluent_map_filled)),
+
+                  elevation: 50.0,
+                  backgroundColor: Colors.indigo, onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder:(context)=> MyApp3(),
+                  ));
+                },
+                ),
                 TextButton(
                   child: const Text("Mas informacion..."),
                   onPressed: () {

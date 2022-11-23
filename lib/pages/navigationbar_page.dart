@@ -1,9 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:registrar_page_turismapp/maps/maps_site1.dart';
+import 'package:registrar_page_turismapp/maps/maps_site2.dart';
 import 'package:registrar_page_turismapp/pages/home_page.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:registrar_page_turismapp/pages/login_page.dart';
-import 'package:registrar_page_turismapp/pages/menu_page.dart';
+
 import 'package:registrar_page_turismapp/pages/search_screen.dart';
 
 
@@ -21,7 +23,6 @@ class _navigationBarState extends State<navigationBar> {
   static final List <Widget>_widgetOptions = <Widget>[
     HomePage(),
     SearchScreen(),
-    MenuPage(),
 
   ];
 

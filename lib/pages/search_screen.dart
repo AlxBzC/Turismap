@@ -51,6 +51,8 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
             Container(),
             const Gap(20),
+
+
             Container(
               padding: EdgeInsets.symmetric(vertical: (15), horizontal: (15)),
               decoration: BoxDecoration(

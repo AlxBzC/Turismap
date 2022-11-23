@@ -1,5 +1,8 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:registrar_page_turismapp/main.dart';
+import 'package:registrar_page_turismapp/maps/maps_site1.dart';
+import 'package:registrar_page_turismapp/maps/maps_site2.dart';
 import 'package:registrar_page_turismapp/models/sitioslocal.dart';
 import 'package:registrar_page_turismapp/repository/boxes.dart';
 import 'package:registrar_page_turismapp/utils/app_styles.dart';
@@ -64,13 +67,15 @@ class _sitePage1 extends State<sitePage1> {
                   ],
                 ),
                 Gap(20),
+
                 IconButton(
                     alignment: Alignment.topRight,
                     color: Colors.red,
                     onPressed: () {
                       FavoritosLista();
                     },
-                    icon: Icon(Icons.description)),
+                  icon: Icon(FluentSystemIcons.ic_fluent_heart_filled)),
+
                 Container(
                   height: 250.0,
                   width: 350.0,
@@ -166,7 +171,20 @@ class _sitePage1 extends State<sitePage1> {
                     )
                   ],
                 )),
+
                 Gap(10),
+                FloatingActionButton(
+                  child: (
+                  Icon(FluentSystemIcons.ic_fluent_map_filled)),
+
+                  elevation: 50.0,
+                  backgroundColor: Colors.indigo, onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder:(context)=> MyApp1(),
+                    ));
+                },
+                ),
+
                 TextButton(
                   child: const Text("Mas informacion..."),
                   onPressed: () {
