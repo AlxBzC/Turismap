@@ -18,15 +18,24 @@ class SitiosLocalAdapter extends TypeAdapter<SitiosLocal> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return SitiosLocal()
-      ..id = fields[0] as String?;
+      ..id = fields[0] as String?
+      ..nombre = fields[1] as String?;
+      ..historia = fields[2] as String?;
+      ..info = fields[3] as String?;
   }
 
   @override
   void write(BinaryWriter writer, SitiosLocal obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(2)
       ..writeByte(0)
-      ..write(obj.id);
+      ..write(obj.id)
+      ..writeByte(1)
+      ..write(obj.nombre);
+      ..writeByte(2)
+      ..write(obj.historia);
+      ..writeByte(3)
+      ..write(obj.info);
   }
 
   @override
