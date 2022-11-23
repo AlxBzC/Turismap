@@ -2,12 +2,9 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:registrar_page_turismapp/pages/sitio_page.dart';
-
 import 'favoritos_page.dart';
 import 'home_page.dart';
 import 'login_page.dart';
-
-
 
 class MenuPage extends StatefulWidget {
 
