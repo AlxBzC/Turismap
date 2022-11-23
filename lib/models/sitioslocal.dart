@@ -7,3 +7,13 @@
 
  // @HiveField(0)
  //  String? id ; 
+
+ // @HiveField(1)
+ //  String? nombre ;
+
+ // @HiveField(2)
+ //  String? historia ;
+
+ // @HiveField(3)
+ //  String? info ; 
+}
