@@ -1,9 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:registrar_page_turismapp/maps/maps_site1.dart';
+import 'package:registrar_page_turismapp/maps/maps_site2.dart';
 import 'package:registrar_page_turismapp/pages/home_page.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:registrar_page_turismapp/pages/login_page.dart';
-import 'package:registrar_page_turismapp/pages/menu_page.dart';
+
 import 'package:registrar_page_turismapp/pages/search_screen.dart';
 
 
@@ -21,7 +23,6 @@ class _navigationBarState extends State<navigationBar> {
   static final List <Widget>_widgetOptions = <Widget>[
     HomePage(),
     SearchScreen(),
-    MenuPage(),
 
   ];
 
@@ -73,8 +74,8 @@ class _navigationBarState extends State<navigationBar> {
     items: const [
     BottomNavigationBarItem(icon: Icon(FluentSystemIcons.ic_fluent_home_regular), activeIcon: Icon(FluentSystemIcons.ic_fluent_home_filled),label: "Inicio"),
     BottomNavigationBarItem(icon: Icon(FluentSystemIcons.ic_fluent_search_regular), activeIcon: Icon(FluentSystemIcons.ic_fluent_search_filled),label: "Buscar"),
-    BottomNavigationBarItem(icon: Icon(FluentSystemIcons.ic_fluent_person_regular), activeIcon: Icon(FluentSystemIcons.ic_fluent_person_filled),label: "Perfil")
-    ,
+
+
     ]
     ,
 
