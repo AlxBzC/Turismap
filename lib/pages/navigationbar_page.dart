@@ -73,13 +73,9 @@ class _navigationBarState extends State<navigationBar> {
     items: const [
     BottomNavigationBarItem(icon: Icon(FluentSystemIcons.ic_fluent_home_regular), activeIcon: Icon(FluentSystemIcons.ic_fluent_home_filled),label: "Inicio"),
     BottomNavigationBarItem(icon: Icon(FluentSystemIcons.ic_fluent_search_regular), activeIcon: Icon(FluentSystemIcons.ic_fluent_search_filled),label: "Buscar"),
-    BottomNavigationBarItem(icon: Icon(FluentSystemIcons.ic_fluent_person_regular), activeIcon: Icon(FluentSystemIcons.ic_fluent_person_filled),label: "Perfil")
-    ,
-    ]
-    ,
-
-    )
-    ,
+    BottomNavigationBarItem(icon: Icon(FluentSystemIcons.ic_fluent_person_regular), activeIcon: Icon(FluentSystemIcons.ic_fluent_person_filled),label: "Perfil"),
+    ],
+    ),
     );
   }
 }
