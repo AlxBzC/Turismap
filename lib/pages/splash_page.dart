@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:registrar_page_turismapp/pages/navigationbar_page.dart';
 import 'login_page.dart';
 
 
@@ -17,8 +19,15 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
   }
   Future<void>_closeSplash() async {
-    Future.delayed(const Duration(seconds: 2), () async{
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginPage() ));
+    Future.delayed(const Duration(seconds: 1), () async {
+      var currentUser = FirebaseAuth.instance.currentUser;
+      if (currentUser == null) {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const LoginPage()));
+      } else {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const navigationBar()));
+      }
     });
   }
 
