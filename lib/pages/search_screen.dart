@@ -1,7 +1,9 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:registrar_page_turismapp/models/sitioslocal.dart';
 import 'package:registrar_page_turismapp/pages/app_layout.dart';
+import 'package:registrar_page_turismapp/repository/boxes.dart';
 import 'package:registrar_page_turismapp/sites/site_page1.dart';
 import 'package:registrar_page_turismapp/sites/site_page2.dart';
 import 'package:registrar_page_turismapp/sites/site_page3.dart';
@@ -16,14 +18,6 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  
- /* void FavoritosLista(){
-    var SitiosLocal = SitiosLocal();
-    id??
-      
-    final box = Boxes.boxFavoritos();
-    box.add(SitiosLocal);
-  } */
   
   @override
   Widget build(BuildContext context) {
@@ -99,14 +93,8 @@ class _SearchScreenState extends State<SearchScreen> {
             "Puente del Humilladero",
             style: Styles.headLineStyle1,
           ),
-          /* IconButton(
-             alignment: Alignment.topRight,
-             color: Colors.red
-              onPressed: (){
-                FavoritosLista();
-              }, icon: Icon(FluentSystemIcons.(porelegir))
-             ), */
-          SizedBox(
+
+          const SizedBox(
             height: 1,
           ),
           TextButton(
@@ -127,7 +115,7 @@ class _SearchScreenState extends State<SearchScreen> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
         child: Column(children: <Widget>[
-          ClipRRect(
+          const ClipRRect(
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(20), topLeft: Radius.circular(20)),
             child: FadeInImage(
@@ -140,14 +128,14 @@ class _SearchScreenState extends State<SearchScreen> {
             "Parque Caldas",
             style: Styles.headLineStyle1,
           ),
-       /* IconButton(
-             alignment: Alignment.topRight,
-             color: Colors.red
-              onPressed: (){
-                FavoritosLista();
-              }, icon: Icon(FluentSystemIcons.(porelegir))
-             ), */
-          SizedBox(
+       // IconButton(
+       //       alignment: Alignment.topRight,
+       //       color: Colors.red
+       //        onPressed: (){
+       //          FavoritosLista();
+       //        }, icon: Icon(FluentSystemIcons.(porelegir))
+       //       ),
+          const SizedBox(
             height: 1,
           ),
           TextButton(

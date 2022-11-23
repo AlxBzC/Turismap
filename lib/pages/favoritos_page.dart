@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 
 
@@ -25,4 +24,3 @@ class _FavoritosPageState extends State<FavoritosPage> {
           return ListView.builder()}
 	)*/
 }
-

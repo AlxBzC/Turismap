@@ -1,4 +1,3 @@
-/*
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 part of 'sitioslocal.dart';
@@ -18,15 +17,18 @@ class SitiosLocalAdapter extends TypeAdapter<SitiosLocal> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return SitiosLocal()
-      ..id = fields[0] as String?;
+      ..id = fields[0] as String?
+      ..nombre = fields[1] as String?;
   }
 
   @override
   void write(BinaryWriter writer, SitiosLocal obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(2)
       ..writeByte(0)
-      ..write(obj.id);
+      ..write(obj.id)
+      ..writeByte(1)
+      ..write(obj.nombre);
   }
 
   @override
@@ -39,4 +41,3 @@ class SitiosLocalAdapter extends TypeAdapter<SitiosLocal> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
-*/
