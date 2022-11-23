@@ -1,5 +1,6 @@
 class Site{
   var _id;
+  var _foto;
   var _nombre;
   var _historia;
   var _info;
@@ -11,6 +12,7 @@ class Site{
   Map<String, dynamic> toJson() =>
       {
         'uid': _id,
+        'foto': _foto,
         'name': _nombre,
         'email': _historia,
         'password': _info
@@ -18,6 +20,7 @@ class Site{
 
   Site.fromJason(Map<String, dynamic> json)
       : _id = json['id'],
+        _foto = json['foto'],
         _nombre = json['nombre'],
         _historia = json['historia'],
         _info = json['info'];
@@ -26,6 +29,11 @@ class Site{
 
   set id(value) {
     _id = value;
+  }
+  get foto => _foto;
+
+  set foto (value) {
+    _foto = value;
   }
 
   get nombre => _nombre;

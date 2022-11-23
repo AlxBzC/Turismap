@@ -9,6 +9,9 @@ class SitiosLocal extends HiveObject {
  String? id;
 
  @HiveField(1)
+ String? foto;
+
+ @HiveField(2)
  String? nombre;
 
 }

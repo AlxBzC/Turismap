@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         Locale("en", "US"),
         Locale("es", "CO"),
       ],
-      theme: ThemeData(primarySwatch: Colors.blue, textTheme: GoogleFonts.workSansTextTheme(),
+      theme: ThemeData(primarySwatch: Colors.indigo, textTheme: GoogleFonts.workSansTextTheme(),
       ),
       //home: Screen(),
       home: const SplashPage(),
