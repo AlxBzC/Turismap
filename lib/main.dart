@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
+<<<<<<< HEAD
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:registrar_page_turismapp/models/sitioslocal.dart';
 import 'package:registrar_page_turismapp/pages/my_sites_page.dart';
+=======
+>>>>>>> 210a200b7954afcb3830b04b68ecd2a0156b55f2
 import 'pages/splash_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -15,9 +18,9 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
- await Hive.initFlutter();
-  Hive.registerAdapter(SitiosLocalAdapter());
-  await Hive.openBox<SitiosLocal>('favoritos');
+ // await Hive.initFlutter();
+  // Hive.registerAdapter(SitiosLocalAdapter());
+  //await Hive.openBox<SitiosLocal>('favoritos');
   runApp(const MyApp());
   Firebase.initializeApp();
 
@@ -31,7 +34,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      color: Colors.indigo,
       title: 'Turismapp',
       localizationsDelegates: const[
         GlobalMaterialLocalizations.delegate,
@@ -44,8 +46,8 @@ class MyApp extends StatelessWidget {
       ],
       theme: ThemeData(primarySwatch: Colors.indigo, textTheme: GoogleFonts.workSansTextTheme(),
       ),
-
-      home: const MySitesPage(),
+      //home: Screen(),
+      home: const SplashPage(),
     );
   }
 }

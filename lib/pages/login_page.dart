@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:registrar_page_turismapp/models/user.dart';
+import 'package:registrar_page_turismapp/pages/navigationbar_page.dart';
 import 'package:registrar_page_turismapp/pages/register_page.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -55,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
       if (result == "invalid-email") {msg = "Correo no valido";} else
       if (result == "wrong-password") {msg = "Contraseña incorrecta";} else {
         msg = "Bienvenido";
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MySitesPage()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const navigationBar()));
       }
       _showMsg(msg);
     }

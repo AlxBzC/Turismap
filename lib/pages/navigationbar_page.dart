@@ -5,8 +5,10 @@ import 'package:registrar_page_turismapp/maps/maps_site2.dart';
 import 'package:registrar_page_turismapp/pages/home_page.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:registrar_page_turismapp/pages/login_page.dart';
+import 'package:registrar_page_turismapp/pages/my_sites_page.dart';
 
 import 'package:registrar_page_turismapp/pages/search_screen.dart';
+import 'package:registrar_page_turismapp/pages/search_screen1.dart';
 
 
 class navigationBar extends StatefulWidget {
@@ -22,7 +24,7 @@ class _navigationBarState extends State<navigationBar> {
   int _selectedIndex = 1;
   static final List <Widget>_widgetOptions = <Widget>[
     HomePage(),
-    SearchScreen(),
+    SearchScreen1(),
 
   ];
 

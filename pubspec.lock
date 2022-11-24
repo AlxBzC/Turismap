@@ -278,6 +278,9 @@ packages:
     source: sdk
     version: "0.0.0"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 210a200b7954afcb3830b04b68ecd2a0156b55f2
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -285,7 +288,10 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.7"
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 210a200b7954afcb3830b04b68ecd2a0156b55f2
   flutter_rating_bar:
     dependency: "direct main"
     description:
@@ -293,7 +299,10 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.1"
+<<<<<<< HEAD
 >>>>>>> ff511dfec0118e6cf5a599715a2327bc6bff53be
+=======
+>>>>>>> 210a200b7954afcb3830b04b68ecd2a0156b55f2
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -333,6 +342,9 @@ packages:
     source: hosted
     version: "3.0.1"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 210a200b7954afcb3830b04b68ecd2a0156b55f2
   google_maps_flutter:
     dependency: "direct main"
     description:
@@ -361,8 +373,11 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.4"
+<<<<<<< HEAD
 =======
 >>>>>>> ff511dfec0118e6cf5a599715a2327bc6bff53be
+=======
+>>>>>>> 210a200b7954afcb3830b04b68ecd2a0156b55f2
   graphs:
     dependency: transitive
     description:

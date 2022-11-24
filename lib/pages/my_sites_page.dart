@@ -16,13 +16,12 @@ class _MySitesPageState extends State<MySitesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-      title: const Text("Mis Sitios"),
-      ),
+
 
       body: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(vertical: (15), horizontal: (15)),
           child: Column(
+
             children: [
               StreamBuilder<QuerySnapshot>(
                 stream: FirebaseFirestore.instance.collection(
@@ -55,6 +54,13 @@ class _MySitesPageState extends State<MySitesPage> {
                           child: Stack(
                             children: [
                               Container(
+
+                                margin: const EdgeInsets.only(left: 20),
+                                alignment: Alignment.topLeft,
+                                child: Image.network(
+                                  snap[index]['foto'],
+                                ),),
+                              Container(
                                 margin: const EdgeInsets.only(left: 20),
                                 alignment: Alignment.topLeft,
                                 child: Text(
@@ -65,18 +71,21 @@ class _MySitesPageState extends State<MySitesPage> {
                                   ),
                                 ),
                               ),
-                             Container(
-                                margin: const EdgeInsets.only(right: 20),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  snap[index]['info'],
-                                  style: TextStyle(
-                                    color: Colors.green.withOpacity(0.7),
-                                    //fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
 
+                              Column(
+
+                                    //margin: const EdgeInsets.only(right: 20),
+                                    //alignment: Alignment.center,
+                                    children: [
+                                      Text(
+                                        snap[index]['info'],
+                                        style: TextStyle(
+                                          color: Colors.green.withOpacity(0.7),
+                                          //fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                             ],
                           ),
                         );
