@@ -19,16 +19,21 @@ class SitiosLocalAdapter extends TypeAdapter<SitiosLocal> {
     return SitiosLocal()
       ..id = fields[0] as String?
       ..nombre = fields[1] as String?;
-  }
+      ..historia = fields[2] as String?;
+      ..info = fields[3] as String?;
+}
 
   @override
   void write(BinaryWriter writer, SitiosLocal obj) {
     writer
-      ..writeByte(2)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
       ..write(obj.nombre);
+      ..writeByte(2)
+      ..write(obj.historia);
+      ..writeByte(3)
+      ..write(obj.info);
   }
 
   @override

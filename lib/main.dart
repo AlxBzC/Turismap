@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:registrar_page_turismapp/models/sitioslocal.dart';
+import 'package:registrar_page_turismapp/pages/my_sites_page.dart';
 import 'pages/splash_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -43,8 +44,8 @@ class MyApp extends StatelessWidget {
       ],
       theme: ThemeData(primarySwatch: Colors.indigo, textTheme: GoogleFonts.workSansTextTheme(),
       ),
-      //home: Screen(),
-      home: const SplashPage(),
+
+      home: const MySitesPage(),
     );
   }
 }

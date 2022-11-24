@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:registrar_page_turismapp/models/user.dart' as UsersApp;
 
+import '../models/site.dart';
+
 class FirebaseApi{
 
   Future<String?> registerUser(String email, String password) async {
@@ -42,5 +44,20 @@ class FirebaseApi{
         return e.code;
       }
     }
+
+  /*Future<String> createSite(Site site) async {
+    try {
+      final uid = FirebaseAuth.instance.currentUser?.uid;
+      final document =  FirebaseFirestore.instance
+          .collection("users").doc(uid).collection("site").doc();
+      site.id = document.id;
+
+      final result = FirebaseFirestore.instance.collection("users").doc(uid).collection("sites").doc(site.id).set(site.toJson());
+      return site.id;
+    } on FirebaseException catch (e) {
+      print("FirebaseException ${e.code}");
+      return e.code;
+    }
+  }*/
 
 }

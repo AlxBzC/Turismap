@@ -11,4 +11,9 @@ class SitiosLocal extends HiveObject {
  @HiveField(1)
  String? nombre;
 
+ @HiveField(2)
+ String? historia ;
+
+ @HiveField(3)
+ String? info ;
 }
