@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'login_page.dart';
 
-
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
 
@@ -10,14 +9,15 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-
-  void initState(){
+  void initState() {
     _closeSplash();
     super.initState();
   }
-  Future<void>_closeSplash() async {
-    Future.delayed(const Duration(seconds: 2), () async{
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginPage() ));
+
+  Future<void> _closeSplash() async {
+    Future.delayed(const Duration(seconds: 2), () async {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const LoginPage()));
     });
   }
 
@@ -25,7 +25,8 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Image(image: AssetImage('assets/colombia_bandera.png'),
+        child: Image(
+          image: AssetImage('assets/colombia_bandera.png'),
         ),
       ),
     );

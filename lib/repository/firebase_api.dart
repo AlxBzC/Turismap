@@ -52,7 +52,8 @@ class FirebaseApi{
           .collection("users").doc(uid).collection("site").doc();
       site.id = document.id;
 
-      final result = FirebaseFirestore.instance.collection("users").doc(uid).collection("sites").doc(site.id).set(site.toJson());
+      final result = FirebaseFirestore.instance.collection("users").doc(uid)
+      .collection("sites").doc(site.id).set(site.toJson());
       return site.id;
     } on FirebaseException catch (e) {
       print("FirebaseException ${e.code}");

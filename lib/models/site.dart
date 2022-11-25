@@ -1,48 +1,26 @@
-class Site{
-  var _id;
-  var _nombre;
-  var _historia;
-  var _info;
+class datosSite {
+  String id = "";
+  String nombre = "";
+  String historia = "";
+  String ciudad = "";
+  String foto = "";
 
   static const String collectionId = 'lugaresTuriticosPopayan';
 
-  Site(this._id, this._nombre, this._historia, this._info);
+  datosSite(this.id, this.nombre, this.historia, this.ciudad, this.foto);
 
-  Map<String, dynamic> toJson() =>
-      {
-        'uid': _id,
-        'name': _nombre,
-        'email': _historia,
-        'password': _info
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'nombre': nombre,
+        'historia': historia,
+        'ciudad': ciudad,
+        'foto': foto
       };
 
-  Site.fromJason(Map<String, dynamic> json)
-      : _id = json['id'],
-        _nombre = json['nombre'],
-        _historia = json['historia'],
-        _info = json['info'];
-
-  get id => _id;
-
-  set id(value) {
-    _id = value;
-  }
-
-  get nombre => _nombre;
-
-  set nombre(value) {
-    _nombre = value;
-  }
-
-  get historia => _historia;
-
-  set historia(value) {
-    _historia = value;
-  }
-
-  get info => _info;
-
-  set info(value) {
-    _info = value;
-  }
+  datosSite.fromJason(Map<String, dynamic> json)
+      : id = json['id'],
+        nombre = json['nombre'],
+        historia = json['historia'],
+        ciudad = json['ciudad'],
+        foto = json['foto'];
 }

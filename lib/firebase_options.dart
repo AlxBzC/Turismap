@@ -70,7 +70,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '36944624821',
     projectId: 'turismapp-e48b1',
     storageBucket: 'turismapp-e48b1.appspot.com',
-    iosClientId: '36944624821-k33mg335366nkimig17p4ihel42j7ihv.apps.googleusercontent.com',
+    iosClientId:
+        '36944624821-k33mg335366nkimig17p4ihel42j7ihv.apps.googleusercontent.com',
     iosBundleId: 'com.example.registrarPageTurismapp',
   );
 }

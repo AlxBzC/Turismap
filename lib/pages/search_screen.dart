@@ -2,10 +2,6 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:registrar_page_turismapp/pages/app_layout.dart';
-import 'package:registrar_page_turismapp/sites/site_page1.dart';
-import 'package:registrar_page_turismapp/sites/site_page2.dart';
-import 'package:registrar_page_turismapp/sites/site_page3.dart';
-import 'package:registrar_page_turismapp/sites/site_page4.dart';
 import '../utils/app_styles.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -16,15 +12,14 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  
- /* void FavoritosLista(){
+  /* void FavoritosLista(){
     var SitiosLocal = SitiosLocal();
     id??
-      
+
     final box = Boxes.boxFavoritos();
     box.add(SitiosLocal);
   } */
-  
+
   @override
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(BuildContext);
@@ -112,8 +107,7 @@ class _SearchScreenState extends State<SearchScreen> {
           TextButton(
             child: const Text("Mas informacion..."),
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => sitePage1()));
+              //Navigator.push(context, MaterialPageRoute(builder: (context) => sitePage1()));
             },
           ),
         ]),
@@ -140,7 +134,7 @@ class _SearchScreenState extends State<SearchScreen> {
             "Parque Caldas",
             style: Styles.headLineStyle1,
           ),
-       /* IconButton(
+          /* IconButton(
              alignment: Alignment.topRight,
              color: Colors.red
               onPressed: (){
@@ -153,8 +147,7 @@ class _SearchScreenState extends State<SearchScreen> {
           TextButton(
             child: const Text("Mas informacion..."),
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => sitePage2()));
+              // Navigator.push(context,MaterialPageRoute(builder: (context) => sitePage2()));
             },
           ),
         ]),
@@ -187,8 +180,7 @@ class _SearchScreenState extends State<SearchScreen> {
           TextButton(
             child: const Text("Mas informacion..."),
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => sitePage3()));
+              //Navigator.push(context, MaterialPageRoute(builder: (context) => sitePage3()));
             },
           ),
         ]),
@@ -217,14 +209,13 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
           SizedBox(
             height: 1,
-    ),
-            TextButton(
-              child: const Text("Mas informacion..."),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => sitePage4()));
-              },
-            ),
+          ),
+          TextButton(
+            child: const Text("Mas informacion..."),
+            onPressed: () {
+              //Navigator.push(context, MaterialPageRoute(builder: (context) => sitePage4()));
+            },
+          ),
         ]),
       ),
     );

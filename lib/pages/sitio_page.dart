@@ -1,9 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import 'home_page.dart';
-import 'menu_page.dart';
+import 'package:registrar_page_turismapp/models/site.dart';
+import 'package:registrar_page_turismapp/pages/poi.dart';
 
 class SitiosPage extends StatefulWidget {
   const SitiosPage({Key? key}) : super(key: key);
@@ -13,52 +11,28 @@ class SitiosPage extends StatefulWidget {
 }
 
 class _SitiosPageState extends State<SitiosPage> {
-
-  List sitios=[];
-  List<dynamic> idDoc=[];
-  final buscar=TextEditingController();
+  List sitios = [];
+  List<dynamic> idDoc = [];
 
   @override
   void initState() {
+    // Todo: implement instate
     super.initState();
-    String? correo=FirebaseAuth.instance.currentUser?.email.toString();
-    print("----------------------->>>>>>>>>>>>>>>< "+correo!);
-    getPaseadores();
+    getSitios();
   }
 
-
-
-  Future getPaseadores() async{
-
-    String id="";
-    QuerySnapshot paseador= await FirebaseFirestore.instance.collection("Paseadores").get();
+  Future getSitios() async {
+    String id = "";
+    QuerySnapshot sitio = await FirebaseFirestore.instance
+        .collection("lugaresTuriticosPopayan")
+        .get();
     setState(() {
-      if(paseador.docs.isNotEmpty){
-        for(var pas in paseador.docs){
-          id=pas.id; //Trae el id
+      if (sitio.docs.isNotEmpty) {
+        for (var sit in sitio.docs) {
+          id = sit.id;
           idDoc.add(id);
-          sitios.add(pas.data());
-          print("------------------------>>>>>>>>>>>>>>>>>>><<< ID "+id);
-          print("------------------------>>>>>>>>>>>>>>>>>>><<< "+pas.data().toString());
-        }
-      }
-    });
-  }
+          sitios.add(sit.data());
 
-  Future getCiudad() async{
-
-    idDoc.clear();
-    sitios.clear();
-    String id="";
-    QuerySnapshot paseoCiudad= await FirebaseFirestore.instance.collection("Paseadores").where("ciudad", isEqualTo: buscar.text).get();
-    setState(() {
-      if(paseoCiudad.docs.isNotEmpty){
-        for(var pas in paseoCiudad.docs){
-          id=pas.id; //Trae el id
-          idDoc.add(id);
-          sitios.add(pas.data());
-          print("------------------------>>>>>>>>>>>>>>>>>>><<< ID "+id);
-          print("------------------------>>>>>>>>>>>>>>>>>>><<< "+pas.data().toString());
         }
       }
     });
@@ -67,77 +41,54 @@ class _SitiosPageState extends State<SitiosPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Paseadores"),
-      ),
-      drawer: MenuPage(),
-      body:Stack(
-        children: [
-          Row(
-              children: [
-                Expanded(
-                    child: Container(
-                      padding:
-                      EdgeInsets.only(top: 20, left: 50, right: 0),
-                      child: TextFormField(
-                        controller: buscar,
-                        keyboardType: TextInputType.name,
-                        decoration: const InputDecoration(
-                          labelText: "Ciudad",
-                          border: OutlineInputBorder(),
-                        ),
-                      ),
-                    )
+        appBar: AppBar(
+          title: const Text("Sitios Popayan"),
+        ),
+        // drawer: MenuPage(),
+        body: Stack(children: [
 
-                ),
-                IconButton(
-                    onPressed: (){
-                      setState(() {
-                        getCiudad();
-                      });
-                    },
-                    padding: EdgeInsets.only(right: 50, left: 10),
-                    icon: const Icon(Icons.search, size: 50, color: Colors.white))
-              ]
-          ),
-          const SizedBox(
-            height: 30,
-          ),
           Padding(
-            padding: const EdgeInsets.only(top: 100),
-            child: Container(
-              child: ListView.builder(
-                  padding: EdgeInsets.all(30),
-                  itemCount: sitios.length,
-                  itemBuilder: (BuildContext context, i){
-                    return Row(
-                      children: [
-                        Padding(
-                            padding: EdgeInsets.all(10),
-                            child: CircleAvatar(
-                              backgroundImage: NetworkImage(sitios[i]['foto'], ),
-                              radius: 50,
-                            )
-                        ),
-                        /*Expanded(
-                          child: ListTile(
-                            title: Text(sitios[i]["nombre"], style: const TextStyle(fontSize: 20, color: Colors.black, )),
-                            subtitle: Text(paseadores[i]["ciudad"]),
-                            onTap: (){
-                              datosSitios paseadorNew= datosSitio(idDoc[i], paseadores[i]["nombre"], paseadores[i]["ciudad"], paseadores[i]["contacto"], paseadores[i]["foto"], paseadores[i]["perfil"], paseadores[i]["ubicacion"]);
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>DetalleSitios(sitioNew)));
-                            },
+              padding: const EdgeInsets.only(top: 10),
+              child: Container(
+                  child: ListView.builder(
+                      padding: EdgeInsets.all(30),
+                      itemCount: sitios.length,
+                      itemBuilder: (BuildContext context, i) {
+                        return Row(children: [
+                          Padding(
+                              padding: EdgeInsets.all(10),
+                              child: CircleAvatar(
+                                backgroundImage: NetworkImage(
+                                  sitios[i]['foto'],
+                                ),
+                                radius: 50,
+                              )),
+                          Expanded(
+                            child: ListTile(
+                              title: Text(sitios[i]["nombre"],
+                                  style: const TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.black,
+                                  )),
+                              subtitle: Text(sitios[i]["info"],
+                              textAlign: TextAlign.justify,),
+                              onTap: () {
+                                datosSite sitioNew = datosSite(
+                                    idDoc[i],
+                                    sitios[i]["nombre"],
+                                    sitios[i]["historia"],
+                                    sitios[i]["foto"],
+                                    sitios[i]["ciudad"]);
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            PoiPage(sitioNew)));
+                              },
+                            ),
                           ),
-                        ),*/
-                      ],
-                    );
-                  }
-              ),
-            ),
-          ),
-        ],
-      ),
-      bottomNavigationBar: const menuInferior(),
-    );
+                        ]);
+                      })))
+        ]));
   }
 }
