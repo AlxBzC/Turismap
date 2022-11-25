@@ -47,6 +47,7 @@ dependencies:
   fluentui_icons: ^1.0.0
   gap: ^2.0.0
   firebase_auth: ^4.1.2
+  google_maps_flutter: ^2.2.1
  
 
 dev_dependencies:

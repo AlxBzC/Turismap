@@ -1,7 +1,16 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:registrar_page_turismapp/models/sitioslocal.dart';
 import 'package:registrar_page_turismapp/pages/app_layout.dart';
+<<<<<<< HEAD
+=======
+import 'package:registrar_page_turismapp/repository/boxes.dart';
+import 'package:registrar_page_turismapp/sites/site_page1.dart';
+import 'package:registrar_page_turismapp/sites/site_page2.dart';
+import 'package:registrar_page_turismapp/sites/site_page3.dart';
+import 'package:registrar_page_turismapp/sites/site_page4.dart';
+>>>>>>> b4d125119eab70ef4228a2a57f0e8a51e550c053
 import '../utils/app_styles.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -12,6 +21,7 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+<<<<<<< HEAD
   /* void FavoritosLista(){
     var SitiosLocal = SitiosLocal();
     id??
@@ -20,20 +30,23 @@ class _SearchScreenState extends State<SearchScreen> {
     box.add(SitiosLocal);
   } */
 
+=======
+  
+>>>>>>> b4d125119eab70ef4228a2a57f0e8a51e550c053
   @override
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(BuildContext);
     return Scaffold(
         backgroundColor: Styles.bgColor,
         body: ListView(
-          padding: EdgeInsets.symmetric(horizontal: (25), vertical: (0)),
+          padding: const EdgeInsets.symmetric(horizontal: (25), vertical: (10)),
           children: [
             Gap((40)),
             Text(
-              "¿Que es\n lo que buscas?",
+              "Descubre Popayán",
               style: Styles.headLineStyle1.copyWith(fontSize: 30),
             ),
-            Gap(30),
+            Gap(20),
             Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -44,7 +57,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   const Icon(FluentSystemIcons.ic_fluent_search_regular,
                       color: Color(0xFFBFC205)),
                   Text(
-                    "  Bucar",
+                    "Bucar",
                     style: Styles.headLineStyle4,
                   )
                 ],
@@ -52,6 +65,8 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
             Container(),
             const Gap(20),
+
+
             Container(
               padding: EdgeInsets.symmetric(vertical: (15), horizontal: (15)),
               decoration: BoxDecoration(
@@ -81,7 +96,7 @@ class _SearchScreenState extends State<SearchScreen> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
         child: Column(children: <Widget>[
-          ClipRRect(
+          const ClipRRect(
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(20), topLeft: Radius.circular(20)),
             child: FadeInImage(
@@ -94,14 +109,8 @@ class _SearchScreenState extends State<SearchScreen> {
             "Puente del Humilladero",
             style: Styles.headLineStyle1,
           ),
-          /* IconButton(
-             alignment: Alignment.topRight,
-             color: Colors.red
-              onPressed: (){
-                FavoritosLista();
-              }, icon: Icon(FluentSystemIcons.(porelegir))
-             ), */
-          SizedBox(
+
+          const SizedBox(
             height: 1,
           ),
           TextButton(
@@ -121,7 +130,7 @@ class _SearchScreenState extends State<SearchScreen> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
         child: Column(children: <Widget>[
-          ClipRRect(
+          const ClipRRect(
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(20), topLeft: Radius.circular(20)),
             child: FadeInImage(
@@ -134,6 +143,7 @@ class _SearchScreenState extends State<SearchScreen> {
             "Parque Caldas",
             style: Styles.headLineStyle1,
           ),
+<<<<<<< HEAD
           /* IconButton(
              alignment: Alignment.topRight,
              color: Colors.red
@@ -142,6 +152,16 @@ class _SearchScreenState extends State<SearchScreen> {
               }, icon: Icon(FluentSystemIcons.(porelegir))
              ), */
           SizedBox(
+=======
+       // IconButton(
+       //       alignment: Alignment.topRight,
+       //       color: Colors.red
+       //        onPressed: (){
+       //          FavoritosLista();
+       //        }, icon: Icon(FluentSystemIcons.(porelegir))
+       //       ),
+          const SizedBox(
+>>>>>>> b4d125119eab70ef4228a2a57f0e8a51e550c053
             height: 1,
           ),
           TextButton(
@@ -161,7 +181,7 @@ class _SearchScreenState extends State<SearchScreen> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
         child: Column(children: <Widget>[
-          ClipRRect(
+          const ClipRRect(
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(20), topLeft: Radius.circular(20)),
             child: FadeInImage(
@@ -174,7 +194,7 @@ class _SearchScreenState extends State<SearchScreen> {
             "Histórico de Popayán",
             style: Styles.headLineStyle1,
           ),
-          SizedBox(
+          const SizedBox(
             height: 1,
           ),
           TextButton(
@@ -194,7 +214,7 @@ class _SearchScreenState extends State<SearchScreen> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
         child: Column(children: <Widget>[
-          ClipRRect(
+          const ClipRRect(
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(20), topLeft: Radius.circular(20)),
             child: FadeInImage(
@@ -207,7 +227,7 @@ class _SearchScreenState extends State<SearchScreen> {
             "Torre del Reloj",
             style: Styles.headLineStyle1,
           ),
-          SizedBox(
+          const SizedBox(
             height: 1,
           ),
           TextButton(
@@ -227,7 +247,7 @@ class _SearchScreenState extends State<SearchScreen> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
         child: Column(children: <Widget>[
-          ClipRRect(
+          const ClipRRect(
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(20), topLeft: Radius.circular(20)),
             child: FadeInImage(
@@ -240,7 +260,7 @@ class _SearchScreenState extends State<SearchScreen> {
             "Iglesia de San Francisco",
             style: Styles.headLineStyle1,
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
         ]),

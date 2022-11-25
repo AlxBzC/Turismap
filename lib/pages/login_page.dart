@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:registrar_page_turismapp/models/user.dart';
+import 'package:registrar_page_turismapp/pages/navigationbar_page.dart';
 import 'package:registrar_page_turismapp/pages/register_page.dart';
 import 'package:registrar_page_turismapp/pages/sitio_page.dart';
 import 'dart:convert';
@@ -62,8 +63,12 @@ class _LoginPageState extends State<LoginPage> {
         msg = "Contraseña incorrecta";
       } else {
         msg = "Bienvenido";
+<<<<<<< HEAD
         Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) => const SitiosPage()));
+=======
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const navigationBar()));
+>>>>>>> b4d125119eab70ef4228a2a57f0e8a51e550c053
       }
       _showMsg(msg);
     }

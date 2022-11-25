@@ -1,8 +1,8 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:registrar_page_turismapp/pages/sitio_page.dart';
-import 'favoritos_page.dart';
+//import 'package:registrar_page_turismapp/pages/sitio_page.dart';
+//import 'favoritos_page.dart';
 import 'home_page.dart';
 import 'login_page.dart';
 
@@ -63,7 +63,7 @@ class _MenuPageState extends State<MenuPage> {
                 textColor: Colors.blue,
                 onTap: (){
                   FirebaseAuth.instance.signOut();
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const SitiosPage()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const SitioscPage()));
                 },
               ),
               ListTile(

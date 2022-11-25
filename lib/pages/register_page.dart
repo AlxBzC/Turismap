@@ -75,9 +75,11 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       backgroundColor: Colors.white,
       body: Container(
         child: Padding(
+<<<<<<< HEAD
             padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50),
             child: SingleChildScrollView(
                 child: Center(
@@ -178,6 +180,113 @@ class _RegisterPageState extends State<RegisterPage> {
 
               //////////////////////////  Fin Boton  ////////////////////////////////
             ])))),
+=======
+          padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 50),
+          child: SingleChildScrollView(
+            child: Center(
+              child: Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 10),
+                    margin: const EdgeInsets.all(30),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(200),
+                      border: Border.all(color: Colors.black54, width: 2),
+                    ),
+                    child: const Image(
+                        image: AssetImage("assets/colombia_bandera.png"),
+                        width: 80,
+                        height: 80),
+                  ),
+                  const Text(
+                      textAlign: TextAlign.center,
+                      style:
+                          TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                      "Regístrate"),
+
+                  const SizedBox(
+                    height: 20,
+                  ),
+
+                  ////  Nombre  /////
+                  TextFormField(
+                    controller: _name,
+                    keyboardType: TextInputType.name,
+                    decoration: const InputDecoration(
+                      labelText: "Nombre completo",
+                      suffixIcon: Icon(Icons.account_circle),
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+
+                  ////  Email    /////
+                  TextFormField(
+                    controller: _email,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: const InputDecoration(
+                      labelText: "Correo Electrónico",
+                      suffixIcon: Icon(Icons.email),
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+
+                  /////  Password   ////
+                  TextFormField(
+                    obscureText: true,
+                    controller: _password,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: const InputDecoration(
+                      labelText: "Contraseña",
+                      suffixIcon: Icon(Icons.vpn_key_sharp),
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+
+                  //// Confirmar Password  ////
+                  TextFormField(
+                    obscureText: true,
+                    controller: _passwordConf,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: const InputDecoration(
+                      labelText: "Confirmar Contraseña",
+                      suffixIcon: Icon(Icons.password),
+                      fillColor: Colors.white,
+                      filled: true,
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+
+                  //////////////////////////  Boton Registrarse  //////////////////////////
+                  ElevatedButton(
+                    style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 16),
+                    ),
+                    onPressed: () {
+                      _onRegisterButtonClicked();
+                    },
+                    child: const Text("Registrar"),
+                  )
+
+                  //////////////////////////  Fin Boton  ////////////////////////////////
+                ],
+              ),
+            ),
+          ),
+        ),
+>>>>>>> b4d125119eab70ef4228a2a57f0e8a51e550c053
       ),
     );
   }
